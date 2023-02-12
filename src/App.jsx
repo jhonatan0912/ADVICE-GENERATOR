@@ -11,7 +11,7 @@ const App = () => {
   const getAdvice = async () => {
     const response = await fetch(URL);
     const data = await response.json();
-    // setLoader(false)
+    setLoader(false)
     setadvice(data.slip)
   }
   useEffect(() => {
