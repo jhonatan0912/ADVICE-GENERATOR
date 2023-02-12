@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --Light-Cyan: hsl(193, 38%, 86%);
+  --Neon-Green: hsl(150, 100%, 66%);
+  --Grayish-Blue: hsl(217, 19%, 38%);
+  --Dark-Grayish-Blue: hsl(217, 19%, 24%);
+  --Dark-Blue: hsl(218, 23%, 16%);
+  --fotn: 'Manrope', sans-serif;
+}
+
+.app-container {
+  background-color: var(--Dark-Blue);
+}
+
+.advice-card {
+  background-color: var(--Dark-Grayish-Blue);
+  color: var(--Light-Cyan);
+}
+
+.advice-number {
+  color: var(--Neon-Green);
+}
+
+.advice-button {
+  background-color: var(--Neon-Green);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.advice-button:active {
+  box-shadow: 0 0 10px 5px var(--Neon-Green);
+}

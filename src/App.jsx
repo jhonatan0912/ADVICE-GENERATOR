@@ -1,32 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react'
+import AdviceCard from './components/AdviceCard'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+  const URL = 'https://api.adviceslip.com/advice';
+
+  const [advice, setadvice] = useState([])
+  const [loader, setLoader] = useState(true)
+
+  const getAdvice = async () => {
+    const response = await fetch(URL);
+    const data = await response.json();
+    setLoader(false)
+    setadvice(data.slip)
+  }
+  useEffect(() => {
+    getAdvice()
+  }, [])
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className='w-sreen h-screen app-container flex justify-center items-center text-center'>
+      {loader ? <h2>Loading...</h2> : <AdviceCard item={advice} getAdvice={getAdvice} />}
     </div>
   )
 }
