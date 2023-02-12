@@ -1,4 +1,6 @@
 import React from 'react'
+import divider from "./../../public/images/pattern-divider-mobile.svg";
+import iconDice from "./../../public/images/icon-dice.svg";
 
 const AdviceCard = ({ item, getAdvice }) => {
 
@@ -11,13 +13,13 @@ const AdviceCard = ({ item, getAdvice }) => {
         ❝{item.advice}❞
       </h2>
       <div className="line">
-        <img className='m-auto' src="/src/assets/images/pattern-divider-mobile.svg" alt="" />
+        <img className='m-auto' src={divider} alt="divider" />
       </div>
       <button
         className='advice-button p-4 rounded-full'
         onClick={() => getAdvice()}
       >
-        <img src="/src/assets/images/icon-dice.svg" alt="button" />
+        <img src={iconDice} alt="button" />
       </button>
     </div>
   )
