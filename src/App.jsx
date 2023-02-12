@@ -11,7 +11,7 @@ const App = () => {
   const getAdvice = async () => {
     const response = await fetch(URL);
     const data = await response.json();
-    setLoader(false)
+    // setLoader(false)
     setadvice(data.slip)
   }
   useEffect(() => {
@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <div className='w-sreen h-screen app-container flex justify-center items-center text-center'>
-      {loader ? <h2>Loading...</h2> : <AdviceCard item={advice} getAdvice={getAdvice} />}
+      {loader ? <h2 className='text-5xl md:text-9xl text-white'>Loading...</h2> : <AdviceCard item={advice} getAdvice={getAdvice} />}
     </div>
   )
 }
